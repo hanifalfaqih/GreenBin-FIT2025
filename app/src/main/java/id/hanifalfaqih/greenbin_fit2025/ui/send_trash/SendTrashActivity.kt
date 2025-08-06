@@ -1,10 +1,11 @@
-package com.example.gemcangren.activities
+package id.hanifalfaqih.greenbin_fit2025.ui.send_trash
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
@@ -14,19 +15,20 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
+import id.hanifalfaqih.greenbin_fit2025.R
 import id.hanifalfaqih.greenbin_fit2025.databinding.ActivitySendTrashBinding
-import id.hanifalfaqih.greenbin_fit2025.viewmodel.TransactionViewModel
 
 class SendTrashActivity : AppCompatActivity() {
     private lateinit var previewView: PreviewView
     private lateinit var cameraProvider: ProcessCameraProvider
     private val scanner by lazy { BarcodeScanning.getClient() }
     private var latestScannedValue: String? = null
-    private lateinit var viewModel: TransactionViewModel
-
+//    private lateinit var viewModel: TransactionViewModel
     private lateinit var binding: ActivitySendTrashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +37,6 @@ class SendTrashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         previewView = binding.previewView
-
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        )[TransactionViewModel::class.java]
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             startCamera()
