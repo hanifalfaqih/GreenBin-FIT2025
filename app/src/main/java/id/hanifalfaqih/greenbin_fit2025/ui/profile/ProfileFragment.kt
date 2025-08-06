@@ -10,10 +10,15 @@ import androidx.lifecycle.lifecycleScope
 import id.hanifalfaqih.greenbin_fit2025.R
 import id.hanifalfaqih.greenbin_fit2025.databinding.FragmentProfileBinding
 import id.hanifalfaqih.greenbin_fit2025.ui.login.LoginActivity
+import id.hanifalfaqih.greenbin_fit2025.ui.onboarding.LandingActivity
 import id.hanifalfaqih.greenbin_fit2025.util.TokenManager
 import id.hanifalfaqih.greenbin_fit2025.viewmodel.AuthViewModel
 import id.hanifalfaqih.greenbin_fit2025.viewmodel.UserViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ProfileFragment : Fragment() {
 
@@ -47,21 +52,9 @@ class ProfileFragment : Fragment() {
             binding.emailText.text = profileData.email
         }
 
-
         binding.logoutButton.setOnClickListener {
-            authViewModel.logout()
-        }
-
-        authViewModel.successMessage.observe(viewLifecycleOwner) { success ->
-
-
-            if (success == "200") {
-                startActivity(Intent(requireContext(), LoginActivity::class.java))
-                requireActivity().finish()
-                lifecycleScope.launch {
-                    tokenManager.clearToken()
-                }
-            }
+            startActivity(Intent(requireContext(), LandingActivity::class.java))
+            requireActivity().finish()
         }
 
     }

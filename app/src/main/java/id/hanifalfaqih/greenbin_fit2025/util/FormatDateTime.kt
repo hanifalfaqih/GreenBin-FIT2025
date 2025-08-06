@@ -10,7 +10,7 @@ import java.util.Locale
 @RequiresApi(Build.VERSION_CODES.BAKLAVA)
 fun setFormattedDateTime(textView: TextView, date: Date?) {
     date?.let {
-        val locale = Locale.of("id", "ID")
+        val locale = Locale("id", "ID")
         val formatter = SimpleDateFormat("dd MMMM yyyy, HH:mm", locale)
         textView.text = formatter.format(date)
     }

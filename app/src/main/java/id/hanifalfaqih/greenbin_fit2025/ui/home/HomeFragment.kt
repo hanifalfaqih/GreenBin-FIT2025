@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.hanifalfaqih.greenbin_fit2025.adapter.ListArticleAdapter
 import id.hanifalfaqih.greenbin_fit2025.databinding.FragmentHomeBinding
+import id.hanifalfaqih.greenbin_fit2025.ui.article.ArticleActivity
 import id.hanifalfaqih.greenbin_fit2025.ui.article.ArticleDetailActivity
 import id.hanifalfaqih.greenbin_fit2025.ui.calculator_point.CalculatorPointActivity
 import id.hanifalfaqih.greenbin_fit2025.ui.history.HistoryActivity
@@ -97,6 +98,11 @@ class HomeFragment : Fragment() {
 
         binding.btnHistory.setOnClickListener {
             val intent = Intent(requireContext(), HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.allArticleText.setOnClickListener {
+            val intent = Intent(requireContext(), ArticleActivity::class.java)
             startActivity(intent)
         }
     }

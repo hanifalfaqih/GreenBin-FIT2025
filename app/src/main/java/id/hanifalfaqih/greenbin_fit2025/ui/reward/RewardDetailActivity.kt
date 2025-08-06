@@ -2,6 +2,7 @@ package id.hanifalfaqih.greenbin_fit2025.ui.reward
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -56,6 +57,9 @@ class RewardDetailActivity : AppCompatActivity() {
 
         binding.redeemButton.setOnClickListener {
             transactionViewModel.redeemReward(rewardId)
+            Toast.makeText(this, "Berhasil menukar hadiah", Toast.LENGTH_SHORT).show().apply {
+                finish()
+            }
         }
 
         binding.backButton.setOnClickListener {
@@ -73,7 +77,7 @@ class RewardDetailActivity : AppCompatActivity() {
                 .into(binding.rewardImage)
 
             binding.rewardTitle.text = rewardDetail.title
-            binding.rewardPoint.text = rewardDetail.point.toString()
+            binding.rewardPoint.text = rewardDetail.point.toString() + " poin"
             binding.rewardDescription.text = rewardDetail.description
         }
 
