@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenBinFIT2025">
         <activity
+            android:name=".ui.article.ArticleDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.history.HistoryActivity"
             android:exported="false" />
         <activity
