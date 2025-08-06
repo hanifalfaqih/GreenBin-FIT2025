@@ -1,5 +1,6 @@
 package id.hanifalfaqih.greenbin_fit2025.repository
 
+import android.util.Log
 import id.hanifalfaqih.greenbin_fit2025.model.request.LoginRequest
 import id.hanifalfaqih.greenbin_fit2025.model.request.RegisterRequest
 import id.hanifalfaqih.greenbin_fit2025.model.response.auth.LoginResponse
@@ -24,7 +25,8 @@ class AuthRepository(
     }
 
     suspend fun logout(): LogoutResponse {
-        val token = tokenManager.tokenFlow
+        val token = tokenManager.tokenFlow.collect { it }
+        Log.d("AuthRepository", token.toString())
         return authService.logout("Bearer $token")
     }
 

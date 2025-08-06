@@ -46,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show()
                 }
 
-                startActivity(Intent(this, MainMenuActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             } else {
                 Toast.makeText(this, "Registrasi gagal", Toast.LENGTH_SHORT).show()

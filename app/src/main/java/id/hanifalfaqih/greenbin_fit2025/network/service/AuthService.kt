@@ -23,6 +23,6 @@ interface AuthService {
 
     @POST("/api/v1/auth/logout")
     suspend fun logout(
-        @Header("Authorization") authorization: String
+        @Header("Authorization") token: String
     ): LogoutResponse
 }

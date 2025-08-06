@@ -1,5 +1,6 @@
 package id.hanifalfaqih.greenbin_fit2025.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -55,13 +56,12 @@ class AuthViewModel(private val tokenManager: TokenManager) : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = repository.logout()
-                tokenManager.clearToken()
-                successMessage.value = response.message
-                successLogout.value = true
+                successMessage.value = response.code
+
             } catch (e: Exception) {
                 val response = repository.logout()
-                successMessage.value = response.message
-                successLogout.value = false
+                successMessage.value = response.code
+                Log.d("AuthViewModel", e.message.toString())
             }
         }
     }
