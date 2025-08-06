@@ -47,7 +47,7 @@ class CalculatorPointActivity : AppCompatActivity() {
     }
 
     private fun calculatePoint(weight: Int) {
-        val point = (weight * 0.05).toInt()
+        val point = (weight * 0.1).toInt()
         binding.resultText.text = point.toString() + " Poin"
     }
 }
