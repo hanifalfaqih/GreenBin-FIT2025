@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface RewardService {
 
     @GET("/api/v1/reward/get-all")
-    suspend fun getAllRewards(): List<RewardItem>
+    suspend fun getAllRewards(): RewardResponse
 
     @GET("/api/v1/reward/detail/{id}")
     suspend fun getDetailReward(

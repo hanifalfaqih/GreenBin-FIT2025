@@ -19,7 +19,7 @@ class ListRewardAdapter(private val rewardId: (Int) -> Unit): ListAdapter<Reward
                     .into(it.articleImage)
 
                 it.rewardName.text = data.title
-                it.rewardPoint.text = data.point.toString()
+                it.rewardPoint.text = data.point.toString() + " poin"
 
                 itemView.setOnClickListener {
                     rewardId.invoke(data.id.toInt())

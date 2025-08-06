@@ -26,7 +26,7 @@ class RewardViewModel(private val tokenManager: TokenManager) : ViewModel() {
     fun getAllRewards() {
         viewModelScope.launch {
             try {
-                rewardList.value = repository.getAllRewards()
+                rewardList.value = repository.getAllRewards().data
             } catch (e: Exception) {
                 errorMessage.value = e.message.toString()
             }

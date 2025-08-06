@@ -33,15 +33,15 @@ class ListHistoryAdapter: ListAdapter<TransactionHistoryItem, ListHistoryAdapter
         @RequiresApi(Build.VERSION_CODES.BAKLAVA)
         fun bind(data: TransactionHistoryItem) {
             binding.also {
-                if (data.status_point == 1) {
+                if (data.status_point == 0) {
                     it.historyTitle.text = "Tambah Poin"
                     it.historyPoint.text = "+${data.point}"
-                    it.historyPoint.resources.getColor(R.color.primary_second, null)
+                    it.historyPoint.setTextColor(itemView.context.resources.getColor(R.color.primary, null))
                     setFormattedDateTime(it.historyDate, data.created_at)
-                } else if (data.status_point == 0) {
+                } else if (data.status_point == 1) {
                     it.historyTitle.text = "Tukar Hadiah"
                     it.historyPoint.text = "-${data.point}"
-                    it.historyPoint.resources.getColor(R.color.red, null)
+                    it.historyPoint.setTextColor(itemView.context.resources.getColor(R.color.red, null))
                     setFormattedDateTime(it.historyDate, data.created_at)
                 }
             }

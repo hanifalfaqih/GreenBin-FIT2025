@@ -24,25 +24,12 @@ class HistoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         val tokenManager = TokenManager(applicationContext)
         transactionViewModel = TransactionViewModel(tokenManager)
-
-        binding.backButton.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
 
         transactionViewModel.getTransactionHistory()
 
@@ -51,7 +38,14 @@ class HistoryActivity : AppCompatActivity() {
         }
 
         historyAdapter = ListHistoryAdapter()
+        binding.historyRv.adapter = historyAdapter
         binding.historyRv.layoutManager = LinearLayoutManager(this)
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
 }

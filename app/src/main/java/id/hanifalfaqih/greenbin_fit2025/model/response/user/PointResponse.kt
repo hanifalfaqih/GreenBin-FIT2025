@@ -8,5 +8,5 @@ data class PointResponse(
 )
 
 data class PointData(
-    val point: Int
+    val points: Int
 )

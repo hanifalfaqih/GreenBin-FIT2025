@@ -2,6 +2,7 @@ package id.hanifalfaqih.greenbin_fit2025.repository
 
 import id.hanifalfaqih.greenbin_fit2025.model.response.reward.RewardDetailResponse
 import id.hanifalfaqih.greenbin_fit2025.model.response.reward.RewardItem
+import id.hanifalfaqih.greenbin_fit2025.model.response.reward.RewardResponse
 import id.hanifalfaqih.greenbin_fit2025.network.service.RewardService
 import id.hanifalfaqih.greenbin_fit2025.util.TokenManager
 import kotlinx.coroutines.flow.first
@@ -11,7 +12,7 @@ class RewardRepository(
     private val tokenManager: TokenManager
 ) {
 
-    suspend fun getAllRewards(): List<RewardItem> {
+    suspend fun getAllRewards(): RewardResponse {
         return rewardService.getAllRewards()
     }
 

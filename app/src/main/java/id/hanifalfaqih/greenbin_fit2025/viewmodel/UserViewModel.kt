@@ -21,7 +21,7 @@ class UserViewModel(private val tokenManager: TokenManager) : ViewModel() {
     }
 
     val profileData = MutableLiveData<ProfileData>()
-    val point = MutableLiveData<Int>()
+    val points = MutableLiveData<Int>()
     val errorMessage = MutableLiveData<String>()
 
     fun getProfile() {
@@ -37,7 +37,7 @@ class UserViewModel(private val tokenManager: TokenManager) : ViewModel() {
     fun getPoint() {
         viewModelScope.launch {
             try {
-                point.value = repository.getPoint().data.point
+                points.value = repository.getPoint().data.points
             } catch (e: Exception) {
                 errorMessage.value = e.message.toString()
             }

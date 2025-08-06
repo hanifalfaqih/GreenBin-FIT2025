@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import id.hanifalfaqih.greenbin_fit2025.MainMenuActivity
 import id.hanifalfaqih.greenbin_fit2025.R
 import id.hanifalfaqih.greenbin_fit2025.adapter.ListRewardAdapter
 import id.hanifalfaqih.greenbin_fit2025.databinding.ActivityRewardBinding
 import id.hanifalfaqih.greenbin_fit2025.ui.article.ArticleDetailActivity
+import id.hanifalfaqih.greenbin_fit2025.util.TokenManager
 import id.hanifalfaqih.greenbin_fit2025.viewmodel.RewardViewModel
 
 class RewardActivity : AppCompatActivity() {
@@ -23,6 +25,9 @@ class RewardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRewardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val tokenManager = TokenManager(applicationContext)
+        rewardViewModel = RewardViewModel(tokenManager)
 
         /**
          * Get data from view model
@@ -41,10 +46,16 @@ class RewardActivity : AppCompatActivity() {
         }
         binding.rewardRv.adapter = rewardAdapter
         binding.rewardRv.layoutManager = GridLayoutManager(this, 2)
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun intentToDetailReward(rewardId: Int) {
-        val intent = Intent(this, ArticleDetailActivity::class.java)
+        val intent = Intent(this, RewardDetailActivity::class.java)
         intent.putExtra("REWARD_ID", rewardId)
         startActivity(intent)
     }
