@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import id.hanifalfaqih.greenbin_fit2025.MainMenuActivity
 import id.hanifalfaqih.greenbin_fit2025.R
 import id.hanifalfaqih.greenbin_fit2025.databinding.ActivityRegisterBinding
+import id.hanifalfaqih.greenbin_fit2025.ui.login.LoginActivity
 import id.hanifalfaqih.greenbin_fit2025.util.TokenManager
 import id.hanifalfaqih.greenbin_fit2025.viewmodel.AuthViewModel
 import kotlinx.coroutines.launch
@@ -22,22 +23,21 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         val tokenManager = TokenManager(applicationContext)
         authViewModel = AuthViewModel(tokenManager)
 
         binding.registerButton.setOnClickListener {
             validateRegister()
+        }
+
+        binding.loginLinkText.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         authViewModel.successRegister.observe(this) { isSuccess ->
