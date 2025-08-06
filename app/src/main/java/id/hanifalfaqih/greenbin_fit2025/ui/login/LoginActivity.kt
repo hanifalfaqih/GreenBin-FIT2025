@@ -34,18 +34,15 @@ class LoginActivity : AppCompatActivity() {
             validateLogin()
         }
 
-        lifecycleScope.launch {
-            tokenManager.tokenFlow.collect { token ->
-                if (!token.isNullOrEmpty()) {
-
-                    authViewModel.successMessage.observe(this@LoginActivity) { successMessage ->
-                        Toast.makeText(this@LoginActivity, successMessage, Toast.LENGTH_SHORT).show()
-                    }
-
-                    val intent = Intent(this@LoginActivity, MainMenuActivity::class.java)
-                    startActivity(intent)
-                    finish()
+        authViewModel.successLogin.observe(this) { isSuccess ->
+            if (isSuccess) {
+                authViewModel.successMessage.observe(this@LoginActivity) { successMessage ->
+                    Toast.makeText(this@LoginActivity, successMessage, Toast.LENGTH_SHORT).show()
                 }
+
+                val intent = Intent(this@LoginActivity, MainMenuActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
 

@@ -36,6 +36,15 @@
             android:name=".ui.history.HistoryActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.calculator_point.CalculatorPointActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.reward.RewardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.reward.RewardDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.onboarding.LandingActivity"
             android:exported="true">
             <intent-filter>
