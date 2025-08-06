@@ -21,10 +21,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenBinFIT2025">
         <activity
+            android:name=".ui.send_trash.SendTrashActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.article.ArticleDetailActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.history.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.calculator_point.CalculatorPointActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.reward.RewardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.reward.RewardDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.onboarding.LandingActivity"
