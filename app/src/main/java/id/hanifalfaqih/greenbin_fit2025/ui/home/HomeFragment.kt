@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import id.hanifalfaqih.greenbin_fit2025.adapter.ListArticleAdapter
 import id.hanifalfaqih.greenbin_fit2025.databinding.FragmentHomeBinding
 import id.hanifalfaqih.greenbin_fit2025.ui.article.ArticleDetailActivity
@@ -43,12 +44,18 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /**
+         * Get data from view model
+         */
         userViewModel.getProfile()
         userViewModel.getPoint()
         articleViewModel.getTop5Articles()
 
+        /**
+         * Observer from get data above
+         */
         userViewModel.profileData.observe(viewLifecycleOwner) { profileData ->
-            binding.usernameText.text = profileData.name
+            binding.usernameText.text = profileData.name + " 👋"
         }
 
         userViewModel.point.observe(viewLifecycleOwner) { point ->
@@ -59,9 +66,15 @@ class HomeFragment : Fragment() {
             articleAdapter.submitList(articleList)
         }
 
+        /**
+         * Create instance adapter, set adapter and layout manager
+         */
         articleAdapter = ListArticleAdapter { articleId ->
             intentToDetailArticle(articleId)
         }
+        binding.articleRv.adapter = articleAdapter
+        binding.articleRv.layoutManager = LinearLayoutManager(requireContext())
+
 
         binding.btnRedeemPoint.setOnClickListener {
             val intent = Intent(requireContext(), RewardActivity::class.java)
