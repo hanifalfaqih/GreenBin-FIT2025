@@ -32,7 +32,6 @@ class SplashActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             delay(2000)
             tokenManager.tokenFlow.collect { token ->
-                Toast.makeText(this@SplashActivity, token.toString(), Toast.LENGTH_SHORT).show()
                 Log.d("SplashActivity", token.toString())
                 if (token.isNullOrEmpty()) {
                     startActivity(Intent(this@SplashActivity, LandingActivity::class.java))
