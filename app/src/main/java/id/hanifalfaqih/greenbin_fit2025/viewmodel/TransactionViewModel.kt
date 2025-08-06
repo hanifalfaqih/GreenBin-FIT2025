@@ -1,5 +1,7 @@
 package id.hanifalfaqih.greenbin_fit2025.viewmodel
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,14 +25,19 @@ class TransactionViewModel(private val tokenManager: TokenManager): ViewModel() 
     val transactionHistoryList = MutableLiveData<List<TransactionHistoryItem>>()
     val errorMessage = MutableLiveData<String>()
     val transactionCreate = MutableLiveData<TransactionData>()
+    val successMessage = MutableLiveData<String>()
 
     fun createTransaction() {
         viewModelScope.launch {
             try {
+                Log.d("ViewModel", "CREATE TRANSACTION")
                 val transactionRequest = TransactionRequest()
-                transactionCreate.value = repository.createTransaction(transactionRequest).data
+                val response =  repository.createTransaction(transactionRequest)
+                transactionCreate.value = response.data
+                successMessage.value = response.message
             } catch (e: Exception) {
                 errorMessage.value = e.message.toString()
+                Log.d("ViewModel", errorMessage.value)
             }
         }
     }

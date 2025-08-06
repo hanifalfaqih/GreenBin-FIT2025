@@ -22,13 +22,15 @@ import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import id.hanifalfaqih.greenbin_fit2025.R
 import id.hanifalfaqih.greenbin_fit2025.databinding.ActivitySendTrashBinding
+import id.hanifalfaqih.greenbin_fit2025.util.TokenManager
+import id.hanifalfaqih.greenbin_fit2025.viewmodel.TransactionViewModel
 
 class SendTrashActivity : AppCompatActivity() {
     private lateinit var previewView: PreviewView
     private lateinit var cameraProvider: ProcessCameraProvider
     private val scanner by lazy { BarcodeScanning.getClient() }
     private var latestScannedValue: String? = null
-//    private lateinit var viewModel: TransactionViewModel
+    private lateinit var viewModel: TransactionViewModel
     private lateinit var binding: ActivitySendTrashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,14 +46,19 @@ class SendTrashActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 1001)
         }
 
+        val tokenManager = TokenManager(applicationContext)
+        viewModel = TransactionViewModel(tokenManager)
+
         binding.scanQrButton.setOnClickListener {
             val value = latestScannedValue
             if (value == "eTuwWHvPBxedPF29PfMH4kLK6") {
-                Toast.makeText(this, "HIT API", Toast.LENGTH_SHORT).show()
+                viewModel.createTransaction()
+                viewModel.successMessage.observe(this) { successMessage ->
+                    Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show()
+                }
+
             } else if (value != null && value != "eTuwWHvPBxedPF29PfMH4kLK6") {
                 Toast.makeText(this, "QR tidak valid", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Belum ada QR terdeteksi", Toast.LENGTH_SHORT).show()
             }
         }
     }

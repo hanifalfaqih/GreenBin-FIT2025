@@ -44,6 +44,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val tokenManager = TokenManager(requireContext())
+        userViewModel = UserViewModel(tokenManager)
+        articleViewModel = ArticleViewModel()
+
         /**
          * Get data from view model
          */
