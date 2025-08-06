@@ -21,6 +21,7 @@ class ListHistoryAdapter: ListAdapter<TransactionHistoryItem, ListHistoryAdapter
         return HistoryViewHolder(binding)
     }
 
+    @RequiresApi(Build.VERSION_CODES.BAKLAVA)
     override fun onBindViewHolder(
         holder: ListHistoryAdapter.HistoryViewHolder,
         position: Int
