@@ -40,7 +40,7 @@ class AuthViewModel(private val tokenManager: TokenManager) : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = repository.login(email, password)
-                token.value = response.data.access_token
+                tokenManager.saveToken(response.data.access_token)
                 successMessage.value = response.message
                 successLogin.value = true
             } catch (e: Exception) {
