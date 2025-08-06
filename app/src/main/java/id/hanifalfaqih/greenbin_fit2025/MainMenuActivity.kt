@@ -1,5 +1,6 @@
 package id.hanifalfaqih.greenbin_fit2025
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import id.hanifalfaqih.greenbin_fit2025.databinding.ActivityMainMenuBinding
+import id.hanifalfaqih.greenbin_fit2025.ui.send_trash.SendTrashActivity
 
 class MainMenuActivity : AppCompatActivity() {
 
@@ -30,5 +32,10 @@ class MainMenuActivity : AppCompatActivity() {
             )
         )
         navView.setupWithNavController(navController)
+
+        binding.sendTrashButton.setOnClickListener {
+            val intent = Intent(this, SendTrashActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
