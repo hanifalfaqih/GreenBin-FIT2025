@@ -2,11 +2,13 @@ package id.hanifalfaqih.greenbin_fit2025.ui.history
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import id.hanifalfaqih.greenbin_fit2025.MainMenuActivity
 import id.hanifalfaqih.greenbin_fit2025.R
 import id.hanifalfaqih.greenbin_fit2025.adapter.ListHistoryAdapter
@@ -49,7 +51,7 @@ class HistoryActivity : AppCompatActivity() {
         }
 
         historyAdapter = ListHistoryAdapter()
-        binding.historyRv.layoutManager = GridLayoutManager(this, 2)
+        binding.historyRv.layoutManager = LinearLayoutManager(this)
 
     }
 }
