@@ -23,16 +23,9 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         val tokenManager = TokenManager(applicationContext)
         authViewModel = AuthViewModel(tokenManager)
@@ -41,18 +34,15 @@ class LoginActivity : AppCompatActivity() {
             validateLogin()
         }
 
-        lifecycleScope.launch {
-            tokenManager.tokenFlow.collect { token ->
-                if (!token.isNullOrEmpty()) {
-
-                    authViewModel.successMessage.observe(this@LoginActivity) { successMessage ->
-                        Toast.makeText(this@LoginActivity, successMessage, Toast.LENGTH_SHORT).show()
-                    }
-
-                    val intent = Intent(this@LoginActivity, MainMenuActivity::class.java)
-                    startActivity(intent)
-                    finish()
+        authViewModel.successLogin.observe(this) { isSuccess ->
+            if (isSuccess) {
+                authViewModel.successMessage.observe(this@LoginActivity) { successMessage ->
+                    Toast.makeText(this@LoginActivity, successMessage, Toast.LENGTH_SHORT).show()
                 }
+
+                val intent = Intent(this@LoginActivity, MainMenuActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
 
