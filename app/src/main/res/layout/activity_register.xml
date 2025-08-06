@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="24dp"
-    tools:context=".LoginActivity">
+    tools:context=".ui.register.RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -157,8 +157,8 @@
         android:textColor="@color/primary"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/register_text"
-        app:layout_constraintStart_toEndOf="@id/register_text"
-        app:layout_constraintTop_toTopOf="@+id/register_text" />
+        app:layout_constraintBottom_toBottomOf="@+id/login_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/login_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
