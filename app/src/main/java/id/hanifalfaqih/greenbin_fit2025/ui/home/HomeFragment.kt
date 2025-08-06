@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
             binding.usernameText.text = profileData.name + " 👋"
         }
 
-        userViewModel.point.observe(viewLifecycleOwner) { point ->
+        userViewModel.points.observe(viewLifecycleOwner) { point ->
             binding.pointText.text = point.toString()
         }
 

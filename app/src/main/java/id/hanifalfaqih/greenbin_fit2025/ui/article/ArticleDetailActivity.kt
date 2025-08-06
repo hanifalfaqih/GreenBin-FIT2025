@@ -20,6 +20,8 @@ class ArticleDetailActivity : AppCompatActivity() {
         binding = ActivityArticleDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        articleViewModel = ArticleViewModel()
+
         articleId = intent.getIntExtra("ARTICLE_ID", 0)
         articleId.let {
             articleViewModel.getDetailArticle(it)

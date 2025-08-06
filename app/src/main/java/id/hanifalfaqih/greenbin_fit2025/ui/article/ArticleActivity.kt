@@ -26,6 +26,8 @@ class ArticleActivity : AppCompatActivity() {
         binding = ActivityArticleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        articleViewModel = ArticleViewModel()
+
         /**
          * Get data from view model
          */

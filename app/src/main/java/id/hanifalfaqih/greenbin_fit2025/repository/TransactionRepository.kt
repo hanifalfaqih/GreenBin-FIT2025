@@ -1,5 +1,6 @@
 package id.hanifalfaqih.greenbin_fit2025.repository
 
+import id.hanifalfaqih.greenbin_fit2025.model.request.RedeemRequest
 import id.hanifalfaqih.greenbin_fit2025.model.request.TransactionRequest
 import id.hanifalfaqih.greenbin_fit2025.model.response.transaction.TransactionHistoryItem
 import id.hanifalfaqih.greenbin_fit2025.model.response.transaction.TransactionHistoryResponse
@@ -16,6 +17,11 @@ class TransactionRepository(
     suspend fun createTransaction(transactionRequest: TransactionRequest): TransactionResponse {
         val token = tokenManager.tokenFlow.first() ?: throw Exception("Token not found")
         return transactionService.createTransaction("Bearer $token", transactionRequest)
+    }
+
+    suspend fun redeemReward(redeemRequest: RedeemRequest): TransactionResponse {
+        val token = tokenManager.tokenFlow.first() ?: throw Exception("Token not found")
+        return transactionService.redeemTransaction("Bearer $token", redeemRequest)
     }
 
     suspend fun getTransactionHistory(): TransactionHistoryResponse {
