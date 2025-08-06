@@ -1,11 +1,16 @@
 package id.hanifalfaqih.greenbin_fit2025.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import id.hanifalfaqih.greenbin_fit2025.R
+import id.hanifalfaqih.greenbin_fit2025.databinding.HistoryItemCardBinding
 import id.hanifalfaqih.greenbin_fit2025.model.response.transaction.TransactionHistoryItem
+import id.hanifalfaqih.greenbin_fit2025.util.setFormattedDateTime
 
 class ListHistoryAdapter: ListAdapter<TransactionHistoryItem, ListHistoryAdapter.HistoryViewHolder>(HistoryComparator()) {
     override fun onCreateViewHolder(
@@ -24,8 +29,21 @@ class ListHistoryAdapter: ListAdapter<TransactionHistoryItem, ListHistoryAdapter
     }
 
     inner class HistoryViewHolder(private val binding: HistoryItemCardBinding): RecyclerView.ViewHolder(binding.root) {
+        @RequiresApi(Build.VERSION_CODES.BAKLAVA)
         fun bind(data: TransactionHistoryItem) {
-            //TODO 2
+            binding.also {
+                if (data.status_point == 1) {
+                    it.historyTitle.text = "Tambah Poin"
+                    it.historyPoint.text = "+${data.point}"
+                    it.historyPoint.resources.getColor(R.color.primary_second, null)
+                    setFormattedDateTime(it.historyDate, data.created_at)
+                } else if (data.status_point == 0) {
+                    it.historyTitle.text = "Tukar Hadiah"
+                    it.historyPoint.text = "-${data.point}"
+                    it.historyPoint.resources.getColor(R.color.red, null)
+                    setFormattedDateTime(it.historyDate, data.created_at)
+                }
+            }
         }
     }
 

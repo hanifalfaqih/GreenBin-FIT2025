@@ -21,15 +21,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenBinFIT2025">
         <activity
-            android:name=".MainMenuActivity"
-            android:exported="true"
-            android:label="@string/title_activity_main_menu">
+            android:name=".ui.history.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.onboarding.LandingActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainMenuActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main_menu" />
     </application>
 
 </manifest>

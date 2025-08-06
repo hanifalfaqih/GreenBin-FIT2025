@@ -108,6 +108,7 @@
             android:padding="8dp">
 
             <ImageView
+                android:id="@+id/btn_redeem_point"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/round_corner"
@@ -131,6 +132,7 @@
             android:padding="8dp">
 
             <ImageView
+                android:id="@+id/btn_history"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/round_corner"
@@ -154,6 +156,7 @@
             android:padding="8dp">
 
             <ImageView
+                android:id="@+id/btn_calculator_point"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/round_corner"
