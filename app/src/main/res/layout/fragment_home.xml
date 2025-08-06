@@ -23,24 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:text="username"
+        tools:text="username"
         android:textColor="@color/primary"
         android:textSize="@dimen/title"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/greet_text"
         app:layout_constraintStart_toEndOf="@id/greet_text"
-        app:layout_constraintTop_toTopOf="@+id/greet_text" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="👋"
-        android:textColor="@color/primary"
-        android:textSize="@dimen/title"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/greet_text"
-        app:layout_constraintStart_toEndOf="@id/username_text"
         app:layout_constraintTop_toTopOf="@+id/greet_text" />
 
     <androidx.cardview.widget.CardView
@@ -72,19 +60,19 @@
                 android:id="@+id/point_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XXXXXX"
+                tools:text="XXXXXX"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/status_text"
                 app:layout_constraintTop_toBottomOf="@id/status_text" />
 
-            <!--            <ImageView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:src="@drawable/ic_launcher"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_putih"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -137,7 +125,7 @@
                 android:layout_height="48dp"
                 android:background="@drawable/round_corner"
                 android:padding="8dp"
-                android:src="@drawable/reward" />
+                android:src="@drawable/ic_rounded_history_24" />
 
             <TextView
                 android:layout_width="wrap_content"

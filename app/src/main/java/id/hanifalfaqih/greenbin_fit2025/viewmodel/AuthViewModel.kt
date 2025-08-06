@@ -57,7 +57,7 @@ class AuthViewModel(private val tokenManager: TokenManager) : ViewModel() {
             try {
                 val response = repository.logout()
                 successMessage.value = response.code
-
+                tokenManager.clearToken()
             } catch (e: Exception) {
                 val response = repository.logout()
                 successMessage.value = response.code

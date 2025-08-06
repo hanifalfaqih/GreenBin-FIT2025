@@ -36,8 +36,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/nav_view"
+        app:tint="@color/white"
         android:src="@drawable/rounded_document_scanner_24"
-        android:backgroundTint="@color/primary_second"/>
+        android:backgroundTint="@color/primary"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

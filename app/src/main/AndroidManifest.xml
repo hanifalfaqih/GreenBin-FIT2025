@@ -55,12 +55,13 @@
             android:exported="false" />
         <activity
             android:name=".ui.onboarding.LandingActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainMenuActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main_menu" />
+            android:exported="false"/>
+        <activity
+            android:name=".ui.article.ArticleActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
