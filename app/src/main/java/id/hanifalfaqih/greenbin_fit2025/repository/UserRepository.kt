@@ -1,5 +1,6 @@
 package id.hanifalfaqih.greenbin_fit2025.repository
 
+import id.hanifalfaqih.greenbin_fit2025.model.response.user.BadgeResponse
 import id.hanifalfaqih.greenbin_fit2025.model.response.user.PointResponse
 import id.hanifalfaqih.greenbin_fit2025.model.response.user.ProfileResponse
 import id.hanifalfaqih.greenbin_fit2025.network.service.UserService
@@ -19,5 +20,10 @@ class UserRepository(
     suspend fun getPoint(): PointResponse {
         val token = tokenManager.tokenFlow.first() ?: throw Exception("Token not found")
         return userService.getPoint("Bearer $token")
+    }
+
+    suspend fun getBadge(): BadgeResponse {
+        val token = tokenManager.tokenFlow.first() ?: throw Exception("Token not found")
+        return userService.getBadge("Bearer $token")
     }
 }

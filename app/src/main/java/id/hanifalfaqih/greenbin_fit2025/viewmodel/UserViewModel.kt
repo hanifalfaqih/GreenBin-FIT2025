@@ -22,6 +22,7 @@ class UserViewModel(private val tokenManager: TokenManager) : ViewModel() {
 
     val profileData = MutableLiveData<ProfileData>()
     val points = MutableLiveData<Int>()
+    val badge = MutableLiveData<String>()
     val errorMessage = MutableLiveData<String>()
 
     fun getProfile() {
@@ -44,4 +45,13 @@ class UserViewModel(private val tokenManager: TokenManager) : ViewModel() {
         }
     }
 
+    fun getBadge() {
+        viewModelScope.launch {
+            try {
+                badge.value = repository.getBadge().data.badge
+            } catch (e: Exception) {
+                errorMessage.value = e.message.toString()
+            }
+        }
+    }
 }

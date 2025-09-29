@@ -54,7 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Highlight Top 3 -->
     <LinearLayout
         android:id="@+id/top3_container"
         android:layout_width="0dp"
@@ -91,7 +90,6 @@
                         android:scaleType="centerCrop"/>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Badge Silver -->
                 <TextView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -140,7 +138,6 @@
                         android:scaleType="centerCrop"/>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Badge Gold -->
                 <TextView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
@@ -189,7 +186,6 @@
                         android:scaleType="centerCrop"/>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Badge Bronze -->
                 <TextView
                     android:layout_width="24dp"
                     android:layout_height="24dp"

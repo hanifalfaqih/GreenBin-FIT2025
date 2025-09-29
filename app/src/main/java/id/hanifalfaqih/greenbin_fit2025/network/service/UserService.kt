@@ -1,5 +1,6 @@
 package id.hanifalfaqih.greenbin_fit2025.network.service
 
+import id.hanifalfaqih.greenbin_fit2025.model.response.user.BadgeResponse
 import id.hanifalfaqih.greenbin_fit2025.model.response.user.PointResponse
 import id.hanifalfaqih.greenbin_fit2025.model.response.user.ProfileResponse
 import retrofit2.http.GET
@@ -16,5 +17,10 @@ interface UserService {
     suspend fun getPoint(
         @Header("Authorization") token: String
     ): PointResponse
+
+    @GET("/api/v1/profile/badge")
+    suspend fun getBadge(
+        @Header("Authorization") token: String
+    ): BadgeResponse
 
 }
