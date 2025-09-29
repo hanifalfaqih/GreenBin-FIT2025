@@ -46,7 +46,7 @@
         android:id="@+id/time_remaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sisa waktu: 12 hari 5 jam"
+        tools:text="Sisa waktu: 12 hari 5 jam 56 menit"
         android:textSize="14sp"
         android:textColor="@color/gray"
         android:layout_marginTop="4dp"
@@ -103,14 +103,16 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tvName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User 2"
+                android:text="None"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/tvPoints2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="900 pts"/>
+                android:text="-"/>
         </LinearLayout>
 
         <!-- Juara 1 -->
@@ -151,14 +153,16 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tvName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User 1"
+                android:text="None"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/tvPoints1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1200 pts"/>
+                android:text="-"/>
         </LinearLayout>
 
         <!-- Juara 3 -->
@@ -199,14 +203,16 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tvName3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User 3"
+                android:text="None"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/tvPoints3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="850 pts"/>
+                android:text="-"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -33,19 +33,18 @@ class HistoryActivity : AppCompatActivity() {
 
         transactionViewModel.getTransactionHistory()
 
-        transactionViewModel.transactionHistoryList.observe(this) { historyList ->
-            historyAdapter.submitList(historyList)
-        }
-
         historyAdapter = ListHistoryAdapter()
         binding.historyRv.adapter = historyAdapter
         binding.historyRv.layoutManager = LinearLayoutManager(this)
+
+        transactionViewModel.transactionHistoryList.observe(this) { historyList ->
+            historyAdapter.submitList(historyList)
+        }
 
         binding.backButton.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
             finish()
         }
-
     }
 }

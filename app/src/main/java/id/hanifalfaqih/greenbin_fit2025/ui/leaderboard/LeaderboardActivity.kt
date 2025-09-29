@@ -27,25 +27,40 @@ class LeaderboardActivity : AppCompatActivity() {
         binding = ActivityLeaderboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val tokenManager = TokenManager(applicationContext)
-        leaderBoardViewModel = LeaderboardViewModel(tokenManager)
-
-        leaderBoardViewModel.getLeaderboard()
-
         binding.timeRemaining.text = getRemainingTime()
         startRemainingTimeUpdater()
+
+        val tokenManager = TokenManager(applicationContext)
+        leaderBoardViewModel = LeaderboardViewModel(tokenManager)
 
         leaderboardAdapter = ListLeaderboardAdapter()
         binding.leaderboardRv.adapter = leaderboardAdapter
         binding.leaderboardRv.layoutManager = LinearLayoutManager(this)
 
-        val dummyList = listOf(
-            LeaderboardItem("User 4", "800"),
-            LeaderboardItem("User 5", "750"),
-            LeaderboardItem("User 6", "700"),
-            LeaderboardItem("User 7", "650"),
-        )
-        leaderboardAdapter.submitList(dummyList)
+        leaderBoardViewModel.getLeaderboard()
+        leaderBoardViewModel.leaderboardList.observe(this) { leaderboardList ->
+            if (leaderboardList.isNotEmpty()) {
+                val top3 = leaderboardList.take(3)
+                val others = if (leaderboardList.size > 3) leaderboardList.drop(3) else emptyList()
+
+                top3.getOrNull(0)?.let {
+                    binding.tvName1.text = it.name
+                    binding.tvPoints1.text = "${it.total_points} pts"
+                }
+
+                top3.getOrNull(1)?.let {
+                    binding.tvName2.text = it.name
+                    binding.tvPoints2.text = "${it.total_points} pts"
+                }
+
+                top3.getOrNull(2)?.let {
+                    binding.tvName3.text = it.name
+                    binding.tvPoints3.text = "${it.total_points} pts"
+                }
+
+                leaderboardAdapter.submitList(others)
+            }
+        }
     }
 
     private fun startRemainingTimeUpdater() {
