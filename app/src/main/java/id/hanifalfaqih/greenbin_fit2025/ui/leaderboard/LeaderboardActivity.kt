@@ -1,9 +1,11 @@
 package id.hanifalfaqih.greenbin_fit2025.ui.leaderboard
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import id.hanifalfaqih.greenbin_fit2025.MainMenuActivity
 import id.hanifalfaqih.greenbin_fit2025.adapter.ListLeaderboardAdapter
 import id.hanifalfaqih.greenbin_fit2025.databinding.ActivityLeaderboardBinding
 import id.hanifalfaqih.greenbin_fit2025.model.response.leaderboard.LeaderboardItem
@@ -60,6 +62,12 @@ class LeaderboardActivity : AppCompatActivity() {
 
                 leaderboardAdapter.submitList(others)
             }
+        }
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
