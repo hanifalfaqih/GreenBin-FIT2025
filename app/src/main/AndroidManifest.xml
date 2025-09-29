@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenBinFIT2025">
         <activity
+            android:name=".LeaderboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -58,10 +61,10 @@
             android:exported="false" />
         <activity
             android:name=".MainMenuActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.article.ArticleActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>
