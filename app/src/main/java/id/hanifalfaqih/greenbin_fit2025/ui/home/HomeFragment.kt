@@ -28,7 +28,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var userViewModel: UserViewModel
     private lateinit var articleViewModel: ArticleViewModel
-
     private lateinit var articleAdapter: ListArticleAdapter
 
     override fun onCreateView(
@@ -45,6 +44,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         userViewModel.getPoint()
+        userViewModel.getBadge()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,6 +59,7 @@ class HomeFragment : Fragment() {
          */
         userViewModel.getProfile()
         userViewModel.getPoint()
+        userViewModel.getBadge()
         articleViewModel.getTop5Articles()
 
         /**
