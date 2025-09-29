@@ -93,7 +93,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:paddingVertical="8dp">
 
             <ImageView
                 android:id="@+id/btn_redeem_point"
@@ -117,7 +117,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:paddingVertical="8dp">
 
             <ImageView
                 android:id="@+id/btn_history"
@@ -141,7 +141,31 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:paddingVertical="8dp">
+
+            <ImageView
+                android:id="@+id/btn_leaderboard"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/round_corner"
+                android:padding="8dp"
+                android:src="@drawable/rounded_leaderboard_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Leaderboard" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
 
             <ImageView
                 android:id="@+id/btn_calculator_point"
@@ -155,7 +179,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Kalkulator Poin" />
+                android:text="Kalkulator" />
 
         </LinearLayout>
     </LinearLayout>
