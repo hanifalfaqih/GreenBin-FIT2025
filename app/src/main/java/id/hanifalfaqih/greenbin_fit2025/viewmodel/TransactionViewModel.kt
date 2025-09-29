@@ -67,6 +67,4 @@ class TransactionViewModel(private val tokenManager: TokenManager) : ViewModel()
             }
         }
     }
-
-
 }

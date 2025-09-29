@@ -9,7 +9,7 @@ class LeaderboardRepository (
     private val leaderboardService: LeaderboardService,
     private val tokenManager: TokenManager
 ) {
-    suspend fun getProfile(): LeaderboardResponse {
+    suspend fun getLeaderboard(): LeaderboardResponse {
         val token = tokenManager.tokenFlow.first() ?: throw Exception("Token not found")
         return leaderboardService.getLeaderboard("Bearer $token")
     }
