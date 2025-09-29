@@ -14,6 +14,7 @@ import id.hanifalfaqih.greenbin_fit2025.ui.article.ArticleActivity
 import id.hanifalfaqih.greenbin_fit2025.ui.article.ArticleDetailActivity
 import id.hanifalfaqih.greenbin_fit2025.ui.calculator_point.CalculatorPointActivity
 import id.hanifalfaqih.greenbin_fit2025.ui.history.HistoryActivity
+import id.hanifalfaqih.greenbin_fit2025.ui.leaderboard.LeaderboardActivity
 import id.hanifalfaqih.greenbin_fit2025.ui.reward.RewardActivity
 import id.hanifalfaqih.greenbin_fit2025.util.TokenManager
 import id.hanifalfaqih.greenbin_fit2025.viewmodel.ArticleViewModel
@@ -103,6 +104,11 @@ class HomeFragment : Fragment() {
 
         binding.btnCalculatorPoint.setOnClickListener {
             val intent = Intent(requireContext(), CalculatorPointActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLeaderboard.setOnClickListener {
+            val intent = Intent(requireContext(), LeaderboardActivity::class.java)
             startActivity(intent)
         }
 
