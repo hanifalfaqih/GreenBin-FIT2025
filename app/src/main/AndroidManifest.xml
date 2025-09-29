@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenBinFIT2025">
         <activity
-            android:name=".LeaderboardActivity"
+            android:name=".ui.leaderboard.LeaderboardActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

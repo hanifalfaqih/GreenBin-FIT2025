@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import id.hanifalfaqih.greenbin_fit2025.R
 import id.hanifalfaqih.greenbin_fit2025.adapter.ListArticleAdapter
 import id.hanifalfaqih.greenbin_fit2025.databinding.FragmentHomeBinding
 import id.hanifalfaqih.greenbin_fit2025.ui.article.ArticleActivity
@@ -71,6 +69,17 @@ class HomeFragment : Fragment() {
 
         userViewModel.points.observe(viewLifecycleOwner) { point ->
             binding.pointText.text = point.toString()
+        }
+
+        userViewModel.badge.observe(viewLifecycleOwner) { badgeName ->
+            val badgeRes = when (badgeName) {
+                "Eco Starter" -> R.drawable.eco_starter
+                "Recycler Rookie" -> R.drawable.eco_rookie
+                "Green Warrior" -> R.drawable.eco_warrior
+                "Zero Waste Hero" -> R.drawable.eco_warrior
+                else -> R.drawable.logo_putih
+            }
+            binding.badge.setImageResource(badgeRes)
         }
 
         articleViewModel.articleList.observe(viewLifecycleOwner) { articleList ->
