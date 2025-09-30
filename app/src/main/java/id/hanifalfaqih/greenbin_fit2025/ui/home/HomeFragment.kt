@@ -77,7 +77,7 @@ class HomeFragment : Fragment() {
                 "Eco Starter" -> R.drawable.eco_starter
                 "Recycler Rookie" -> R.drawable.eco_rookie
                 "Green Warrior" -> R.drawable.eco_warrior
-                "Zero Waste Hero" -> R.drawable.eco_warrior
+                "Zero Waste Hero" -> R.drawable.eco_hero
                 else -> R.drawable.logo_putih
             }
             binding.badge.setImageResource(badgeRes)
