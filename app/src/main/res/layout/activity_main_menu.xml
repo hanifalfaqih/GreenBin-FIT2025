@@ -9,12 +9,18 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:layout_height="85dp"
+        android:background="@drawable/bg_bottom_nav"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:itemIconSize="28dp"
+        app:itemIconTint="@color/bottom_nav_selector"
+        app:itemTextColor="@color/bottom_nav_selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <fragment
         android:id="@+id/nav_host_fragment_activity_main_menu"
@@ -32,13 +38,15 @@
         android:id="@+id/send_trash_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nav_view"
-        app:tint="@color/white"
         android:src="@drawable/rounded_document_scanner_24"
-        android:backgroundTint="@color/primary"/>
-
+        app:backgroundTint="@color/primary"
+        app:tint="@color/white"
+        app:fabCustomSize="65dp"
+        app:maxImageSize="36dp"
+        app:useCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_view"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
