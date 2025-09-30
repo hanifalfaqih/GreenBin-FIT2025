@@ -75,9 +75,9 @@ class HomeFragment : Fragment() {
         userViewModel.badge.observe(viewLifecycleOwner) { badgeName ->
             val badgeRes = when (badgeName) {
                 "Eco Starter" -> R.drawable.eco_starter
-                "Recycler Rookie" -> R.drawable.eco_rookie
-                "Green Warrior" -> R.drawable.eco_warrior
-                "Zero Waste Hero" -> R.drawable.eco_hero
+                "Eco Rookie" -> R.drawable.eco_rookie
+                "Eco Warrior" -> R.drawable.eco_warrior
+                "Eco Hero" -> R.drawable.eco_hero
                 else -> R.drawable.logo_putih
             }
             binding.badge.setImageResource(badgeRes)
