@@ -63,8 +63,6 @@ class RewardDetailActivity : AppCompatActivity() {
         }
 
         binding.backButton.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
             finish()
         }
 

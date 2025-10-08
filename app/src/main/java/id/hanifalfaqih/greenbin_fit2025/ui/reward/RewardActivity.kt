@@ -48,8 +48,8 @@ class RewardActivity : AppCompatActivity() {
         binding.rewardRv.layoutManager = GridLayoutManager(this, 2)
 
         binding.backButton.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, MainMenuActivity::class.java)
+//            startActivity(intent)
             finish()
         }
     }
